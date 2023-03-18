@@ -9,13 +9,11 @@ export class StudentService {
     @InjectModel(Student.name) private studentModel: Model<StudentDocument>,
   ) {}
 
-  async create(): Promise<void> {
-    const createdStudent = new this.studentModel({
-      firstName: 'Tung',
-      lastName: 'Nguyen',
-      age: '20',
-      dateOfBirth: '20/01/1997',
-    });
+  async create(createStudentDto): Promise<void> {
+    const createdStudent = new this.studentModel(createStudentDto);
     createdStudent.save();
+  }
+  async findAll(): Promise<Student[]> {
+    return this.studentModel.find().exec();
   }
 }

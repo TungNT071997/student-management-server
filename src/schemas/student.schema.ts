@@ -12,7 +12,7 @@ export class Student {
   lastName: string;
 
   @Prop()
-  age: number;
+  email: string;
 
   @Prop()
   dateOfBirth: string;
