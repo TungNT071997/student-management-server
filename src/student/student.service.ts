@@ -18,7 +18,7 @@ export class StudentService {
     return this.studentModel.find().exec();
   }
   async delete(id: string): Promise<void> {
-    await this.studentModel.deleteOne({ id });
+    await this.studentModel.findByIdAndDelete(id);
   }
   async update(
     id: string,
