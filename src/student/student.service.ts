@@ -14,9 +14,15 @@ export class StudentService {
     const createdStudent = new this.studentModel(createStudentDto);
     createdStudent.save();
   }
+
   async findAll(): Promise<Student[]> {
     return this.studentModel.find().exec();
   }
+
+  async findStudentById(id: string): Promise<Student> {
+    return this.studentModel.findById(id).exec();
+  }
+
   async delete(id: string): Promise<void> {
     await this.studentModel.findByIdAndDelete(id);
   }

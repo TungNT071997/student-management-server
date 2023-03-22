@@ -25,6 +25,12 @@ export class StudentController {
   async getAllStudents() {
     return await this.studentService.findAll();
   }
+
+  @Get(':id')
+  async getStudentById(@Param('id') id: string) {
+    return await this.studentService.findStudentById(id);
+  }
+
   @Delete(':id')
   async deleteStudent(@Param('id') id: string) {
     await this.studentService.delete(id);
